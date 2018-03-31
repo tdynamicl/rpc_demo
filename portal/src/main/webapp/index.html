@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <script type="text/javascript" src="static/jquery/jquery-3.1.1.min.js" ></script>
+    <script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js" ></script>
+</head>
+<body>
+    <nav style="height: 50px; background-color: darkgrey; width: 100%">
+        <span>homepage</span>
+    </nav>
+
+    <main>
+        <div>
+            <button class="btn btn-primary" id="btn1">index.do</button>
+        </div>
+        <div>
+            <input title="" type="text" id="ipt">
+            <button id="search-btn">search</button>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+<script>
+    $('#btn1')[0].onclick= function () {
+        $.ajax({
+            type: 'get',
+            url: 'index.do',
+            async: true,
+            data: null,
+            dataType: 'json',
+            success: function(resp) {
+                console.log(resp);
+            },
+            error: function(e) {
+                console.log(e);
+            }
+        });
+    };
+
+    $('#search-btn')[0].onclick = function () {
+        var txt = $('#ipt')[0].value;
+        console.log('txt of input', txt);
+
+        var param = {};
+        param.keyword = txt;
+
+/*        $.post("search.do",param,function(resp){
+            console.log('resp', resp);
+        },'json');*/
+
+        $.ajax({
+            type: 'post',
+            url: 'search.do',
+            async: true,
+            data: JSON.stringify(param),
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(resp) {
+                console.log('resp', resp);
+            },
+            error: function(e) {
+                console.log(e);
+            }
+        });
+    };
+
+</script>
+</body>
+</html>
