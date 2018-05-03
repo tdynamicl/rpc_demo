@@ -23,7 +23,7 @@
 
     <dubbo:application name="portal"/>
 
-    <dubbo:registry address="192.168.8.117:2181" protocol="zookeeper"/>
+    <dubbo:registry address="192.168.100.22:2181" protocol="zookeeper"/>
 
     <dubbo:reference
             interface="priv.tdll.study.proj1.service.SearchService"

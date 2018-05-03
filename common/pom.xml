@@ -12,6 +12,10 @@
     <artifactId>proj1.common</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
         <!--start spring-->
         <dependency>
             <groupId>org.springframework</groupId>

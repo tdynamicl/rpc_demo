@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="priv.tdll.study.proj1.dao.ProductDao">
+
+    <resultMap id="brm" type="priv.tdll.study.proj1.entity.Product">
+        <id property="id" column="ID"/>
+        <result property="name" column="NAME"/>
+        <result property="amount" column="AMOUNT"/>
+    </resultMap>
+
+    <!--
+    T insert(T value);
+    int deleteByUniqueKey(@Param("uk") String fieldName, @Param("value") Object value);
+    T selectByUniqueKey(@Param("uk") String fieldName, @Param("value") Object value);
+    List<T> queryByExample(@Param("example") T example);
+    T update(T value);
+    -->
+    <sql id="bcl">
+      ID,NAME,AMOUNT
+    </sql>
+
+    <insert id="insert">
+
+    </insert>
+
+    <delete id="deleteByUniqueKey">
+
+    </delete>
+
+    <select id="selectByUniqueKey" resultMap="brm">
+
+    </select>
+
+    <select id="queryByExample" parameterType="java.util.List" resultMap="brm">
+
+    </select>
+
+    <update id="update">
+
+    </update>
+
+    <select id="queryByName" resultMap="brm">
+        select <include refid="bcl"/>
+        from PRODUCT
+        where NAME like '%${name}%'
+    </select>
+
+</mapper>

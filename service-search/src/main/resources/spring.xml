@@ -17,9 +17,12 @@
 	http://www.springframework.org/schema/mvc
 	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<!-- scan controller -->
+	<context:property-placeholder location="classpath*:config/db.properties"/>
+	<!-- scan service -->
 	<context:component-scan base-package="priv.tdll.study.proj1.service" />
 
 	<import resource="dubbo-provider.xml"/>
+
+	<import resource="spring-datasource.xml"/>
 
 </beans>
